@@ -3,7 +3,7 @@ import { useFollowPointer } from "@/hooks/useFollowPointer";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-export default function PointerMove() {
+export default function CustomCursor() {
 	const ref = useRef(null);
 	const { x, y, xDotPoint, yDotPoint } = useFollowPointer(ref);
 

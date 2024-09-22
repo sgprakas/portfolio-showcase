@@ -1,12 +1,33 @@
 "use client";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import NavLink from "./NavLink";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+	const navRoutes = [
+		{
+			name: "Home",
+			path: "/",
+		},
+		{
+			name: "Work",
+			path: "/work",
+		},
+		{
+			name: "About",
+			path: "/about",
+		},
+	];
+
+	const pathname = usePathname();
+
 	return (
-		<nav className="">
+		<motion.nav
+			initial={{ y: -100 }}
+			animate={{ y: 0 }}
+			transition={{ type: "spring", stiffness: 80, damping: 5 }}
+		>
 			<div className="max-w-screen-xl min-w-80 flex items-center justify-between mx-auto py-10 px-4 font-condensed">
 				<Link href="/">
 					<span className="text-white text-3xl font-bold tracking-widest hover:text-red-500">
@@ -14,34 +35,33 @@ const Header = () => {
 					</span>
 				</Link>
 
-				<ul className="flex items-center gap-8 justify-center text-xl font-bold tracking-wider">
-					<NavLink
-						href="/"
-						className="hover:text-white"
-						activeClassName="text-white"
-						nonActiveClassName="text-gray-400"
-					>
-						<FlipText>Home</FlipText>
-					</NavLink>
-					<NavLink
-						href="/work"
-						className="hover:text-white"
-						activeClassName="text-white"
-						nonActiveClassName="text-gray-400"
-					>
-						<FlipText>Work</FlipText>
-					</NavLink>
-					<NavLink
-						href="/about"
-						className="hover:text-white"
-						activeClassName="text-white"
-						nonActiveClassName="text-gray-400"
-					>
-						<FlipText>About</FlipText>
-					</NavLink>
-				</ul>
+				<div className="flex items-center gap-8 justify-center text-xl font-bold tracking-wider">
+					{navRoutes.map((link, i) => {
+						const isActive = pathname.startsWith(link.path);
+
+						return (
+							<Link
+								href={link.path}
+								key={i}
+								className={`${
+									isActive ? "text-white" : "text-gray-400"
+								} hover:text-white`}
+							>
+								<div className="flex flex-col gap-2 items-center justify-center">
+									<FlipText>{link.name}</FlipText>
+									{isActive && (
+										<span className="relative flex h-1 w-1">
+											<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+											<span className="inline-flex rounded-full h-1 w-1 bg-sky-500"></span>
+										</span>
+									)}
+								</div>
+							</Link>
+						);
+					})}
+				</div>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
 
@@ -52,7 +72,7 @@ interface FlipTextProps {
 
 const FlipText: React.FC<FlipTextProps> = ({ children, className }) => {
 	return (
-		<motion.li
+		<motion.div
 			initial="initial"
 			whileHover="hovered"
 			className={`${
@@ -77,7 +97,7 @@ const FlipText: React.FC<FlipTextProps> = ({ children, className }) => {
 			>
 				{children}
 			</motion.div>
-		</motion.li>
+		</motion.div>
 	);
 };
 

@@ -2,45 +2,45 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
-import PointerMove from "@/components/PointerMove";
+import CustomCursor from "@/components/CustomCursor";
 
 const PlacardNextCondLt = localFont({
-	src: "./fonts/Placard/PlacardNextCondLt.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextCondLt.ttf",
 	variable: "--font-placardNextCond-light",
 });
 
 const PlacardNextCondRg = localFont({
-	src: "./fonts/Placard/PlacardNextCondRg.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextCondRg.ttf",
 	variable: "--font-placardNextCond-regular",
 });
 
 const PlacardNextCnMed = localFont({
-	src: "./fonts/Placard/PlacardNextCnMed.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextCnMed.ttf",
 	variable: "--font-placardNextCond-medium",
 });
 
 const PlacardNextCnBold = localFont({
-	src: "./fonts/Placard/PlacardNextCnBold.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextCnBold.ttf",
 	variable: "--font-placardNextCond-bold",
 });
 
 const PlacardNextBold = localFont({
-	src: "./fonts/Placard/PlacardNextBold.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextBold.ttf",
 	variable: "--font-placardNext-bold",
 });
 
 const PlacardNextLight = localFont({
-	src: "./fonts/Placard/PlacardNextLight.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextLight.ttf",
 	variable: "--font-placardNext-light",
 });
 
 const PlacardNextRegular = localFont({
-	src: "./fonts/Placard/PlacardNextRegular.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextRegular.ttf",
 	variable: "--font-placardNext-regular",
 });
 
 const PlacardNextMedium = localFont({
-	src: "./fonts/Placard/PlacardNextMedium.ttf",
+	src: "../../public/assets/fonts/Placard/PlacardNextMedium.ttf",
 	variable: "--font-placardNext-medium",
 });
 
@@ -59,11 +59,10 @@ export default function RootLayout({
 			<body
 				className={`${PlacardNextCnBold.variable} ${PlacardNextCondLt.variable} ${PlacardNextCnMed.variable} ${PlacardNextCondRg.variable} ${PlacardNextBold.variable} ${PlacardNextLight.variable} ${PlacardNextMedium.variable} ${PlacardNextRegular.variable} antialiased min-h-screen`}
 			>
-				<PointerMove />
+				<CustomCursor />
 
 				<div className="h-screen flex flex-col">
 					<Header />
-
 					{children}
 				</div>
 			</body>
