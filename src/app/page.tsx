@@ -1,101 +1,68 @@
+"use client";
+import { motion, TargetAndTransition } from "framer-motion";
 import Image from "next/image";
+import AuthorImg from "./assets/images/author.png";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+	const jellyAnimation: TargetAndTransition = {
+		scale: [1, 1.1, 0.9, 1, 1.1, 0.9, 1],
+		borderRadius: [
+			"50% 40% 60% 50% / 60% 50% 40% 30%", // Amoeba-like border radius
+			"50% 35% 50% 60% / 45% 55% 50% 40%", // Another variation
+			"50% 50% 40% 50% / 40% 30% 50% 60%",
+			"45% 55% 50% 45% / 40% 60% 30% 50%", // New variation
+			"30% 50% 70% 30% / 50% 40% 60% 50%",
+			"50% 40% 60% 50% / 60% 50% 40% 30%", // Another variation
+			// Add more variations as needed
+		],
+		transition: {
+			duration: 2,
+			ease: "easeInOut",
+			repeat: Infinity,
+		},
+	};
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+	const rotationAnimation: TargetAndTransition = {
+		rotate: [0, 360],
+		transition: {
+			duration: 10, // Adjust for rotation speed
+			ease: "linear",
+			repeat: Infinity,
+		},
+	};
+
+	return (
+		<div className="flex-grow flex items-center justify-center h-full w-full">
+			<div className="flex flex-col items-end space-y-2 w-1/2">
+				<h1 className="text-white text-9xl font-bold tracking-wider mb-2 font-condensed">
+					Gnana Prakash S
+				</h1>
+
+				<h3 className="text-white text-2xl font-[600] tracking-wider">
+					Based in TamilNadu, India
+				</h3>
+
+				<h1 className="text-white text-6xl font-bold tracking-wider">
+					Full Stack Developer
+				</h1>
+			</div>
+
+			<div className="flex items-center justify-center relative h-full w-1/2">
+				<motion.div
+					animate={{ ...jellyAnimation, ...rotationAnimation }}
+					className="relative bg-foreground w-1/2 aspect-square rounded-full bg-gradient-to-r from-green-400 to-blue-500"
+				></motion.div>
+
+				<div className="absolute mt-12 flex justify-center items-center inset-0">
+					<Image
+						className="absolute"
+						src={AuthorImg}
+						height={600}
+						width={600}
+						alt="author"
+					/>
+				</div>
+			</div>
+		</div>
+	);
 }
