@@ -13,7 +13,7 @@ const AnimateText: React.FC<AnimateTextProps> = ({ text, className }) => {
 		hidden: {},
 		visible: {
 			transition: {
-				staggerChildren: 0.01, // Delay between each character animation
+				staggerChildren: 0.02, // Delay between each character animation
 				staggerDirection: -1,
 			},
 		},
@@ -26,7 +26,7 @@ const AnimateText: React.FC<AnimateTextProps> = ({ text, className }) => {
 			transition: {
 				type: "tween",
 				ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier curve for smoothness
-				duration: 0.5, // A bit slower to accentuate the smoothness
+				duration: 0.3, // A bit slower to accentuate the smoothness
 			},
 		}, // Slide up to its normal position
 	};

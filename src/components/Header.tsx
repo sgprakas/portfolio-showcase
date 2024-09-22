@@ -37,7 +37,7 @@ const Header = () => {
 
 				<div className="flex items-center gap-8 justify-center text-xl font-bold tracking-wider">
 					{navRoutes.map((link, i) => {
-						const isActive = pathname.startsWith(link.path);
+						const isActive = pathname === link.path;
 
 						return (
 							<Link
