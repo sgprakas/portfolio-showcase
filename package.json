@@ -1,6 +1,7 @@
 {
-  "name": "@once-ui-system/magic-portfolio",
-  "version": "2.2.0",
+  "name": "@sgprakash/portfolio",
+  "version": "0.1.0",
+  "description": "Personal portfolio website showcasing skills, projects, and experience.",
   "scripts": {
     "dev": "next dev",
     "export": "next export",

@@ -1,4 +1,4 @@
-# 🧑‍💻 Portfolio – Gnana Prakash
+# 🧑‍💻 Portfolio – Gnana Prakash S
 
 This is my personal developer portfolio to showcase my projects, skills, and experience as a fullstack developer focused on backend systems and AI-powered tools.
 
