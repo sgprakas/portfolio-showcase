@@ -19,6 +19,7 @@ git clone https://github.com/sgprakas/portfolio-showcase.git
 cd portfolio-showcase
 npm install
 npm run dev
+```
 
 ## 📫 Contact
 
