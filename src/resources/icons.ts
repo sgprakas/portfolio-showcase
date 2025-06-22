@@ -23,6 +23,7 @@ import {
 } from "react-icons/pi";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaThreads, FaXTwitter } from "react-icons/fa6";
+import {MyLogo} from "@/resources/svg";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
@@ -46,6 +47,7 @@ export const iconLibrary: Record<string, IconType> = {
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
   x: FaXTwitter,
+  logo: MyLogo
 };
 
 export type IconLibrary = typeof iconLibrary;

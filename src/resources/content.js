@@ -81,7 +81,7 @@ const about = {
         display: true,
     },
     calendar: {
-        display: true,
+        display: false,
         link: "https://cal.com",
     },
     intro: {
@@ -89,70 +89,58 @@ const about = {
         title: "Introduction",
         description: (
             <>
-                Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-                into simple, elegant design solutions. Her work spans digital interfaces, interactive
-                experiences, and the convergence of design and technology.
+                Gnana Prakash is a full stack engineer who builds scalable software systems and backend services. At work, he focuses on designing reliable platforms and APIs, while outside of work he enjoys exploring AI, building side projects, and experimenting with new technologies.
             </>
         ),
     },
     work: {
-        display: true, // set to false to hide this section
+        display: true,
         title: "Work Experience",
         experiences: [
             {
-                company: "FLY",
-                timeframe: "2022 - Present",
-                role: "Senior Design Engineer",
+                company: "The Top-class Entertainment LLP",
+                timeframe: "August 2022 - Present",
+                role: "Full Stack Developer",
                 achievements: [
                     <>
-                        Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-                        engagement and 30% faster load times.
+                        Here, I led a team of four developers to build and maintain internal platforms for a talent-based media streaming service. A major initiative involved rebuilding a legacy content management system (CMS) into a scalable microservices-based architecture, which greatly improved modularity and long-term maintainability.
                     </>,
                     <>
-                        Spearheaded the integration of AI tools into design workflows, enabling designers to
-                        iterate 50% faster.
+                        I developed backend APIs for both the CMS and the mobile-facing application using TypeScript and Fastify. To improve development speed and deployment reliability, I implemented CI/CD pipelines and containerized all services with Docker.
                     </>,
+                    <>
+                        This role also involved close collaboration with the design and QA teams to ensure smooth, stable releases — significantly reducing post-deployment issues.
+                    </>
                 ],
-                images: [
-                    // optional: leave the array empty if you don't want to display images
-                    {
-                        src: "/images/projects/project-01/cover-01.jpg",
-                        alt: "Once UI Project",
-                        width: 16,
-                        height: 9,
-                    },
-                ],
+                images: [],
             },
             {
-                company: "Creativ3",
-                timeframe: "2018 - 2022",
-                role: "Lead Designer",
+                company: " Leora Solutions LLC",
+                timeframe: "July 2021 - July 2022",
+                role: "Full Stack Developer",
                 achievements: [
                     <>
-                        Developed a design system that unified the brand across multiple platforms, improving
-                        design consistency by 40%.
+                        Here, I built scalable backend APIs using TypeScript and Python, supporting both REST and GraphQL protocols to ensure reliable data access for client platforms.
                     </>,
                     <>
-                        Led a cross-functional team to launch a new product line, contributing to a 15% increase
-                        in overall company revenue.
+                        I designed and implemented a GraphQL schema that reduced over-fetching by 40%, leading to noticeable improvements in performance and responsiveness.
                     </>,
+                    <>
+                        I was also involved in the end-to-end delivery of multiple small-scale projects, including an e-commerce platform and a patient management system, handling everything from database modeling to final deployment.
+                    </>
                 ],
                 images: [],
             },
         ],
     },
     studies: {
-        display: true, // set to false to hide this section
+        display: true,
         title: "Studies",
         institutions: [
             {
-                name: "University of Jakarta",
-                description: <>Studied software engineering.</>,
-            },
-            {
-                name: "Build the Future",
-                description: <>Studied online marketing and personal branding.</>,
-            },
+                name: "Karpagam College of Engineering",
+                description: <>I completed my Bachelor of Technology (B.Tech) in Information Technology here, where I developed a strong foundation in computer science and software engineering.</>,
+            }
         ],
     },
     technical: {

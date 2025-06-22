@@ -1,6 +1,19 @@
 import React from "react";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
+import {
+    Heading,
+    Flex,
+    Text,
+    Button,
+    Avatar,
+    RevealFx,
+    Column,
+    Badge,
+    Row,
+    Meta,
+    Schema,
+    Media, GlitchFx
+} from "@once-ui-system/core";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
@@ -8,7 +21,7 @@ import { Posts } from "@/components/blog/Posts";
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column fillWidth gap="xl" horizontal="center" overflow={"hidden"}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -22,7 +35,19 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth paddingY="24" gap="m">
+      <Row fillWidth paddingY="24" gap="m" mobileDirection="column">
+          <Column fillWidth show="s" paddingY="24" gap="m" horizontal="center" vertical={"center"}>
+              <GlitchFx fillWidth speed="slow">
+                  <Media
+                      priority
+                      cursor="interactive"
+                      radius="l"
+                      src={"/images/author.png"}
+                      alt={'Profile of author'}
+                      aspectRatio="4/3"
+                  />
+              </GlitchFx>
+          </Column>
         <Column maxWidth="s">
           {home.featured.display && (
           <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
@@ -66,24 +91,38 @@ export default function Home() {
             </Button>
           </RevealFx>
         </Column>
+          <Column fillWidth hide="s" paddingY="24" gap="m" horizontal="center" vertical={"center"}>
+                  <GlitchFx fillWidth speed="slow">
+                  <Media
+                      priority
+                      cursor="interactive"
+                      radius="l"
+                      src={"/images/author.png"}
+                      alt={'Profile of author'}
+                      aspectRatio="4/3"
+                  />
+                  </GlitchFx>
+          </Column>
+      </Row>
+      <Column maxWidth="m" gap="xl" horizontal="center">
+          <RevealFx translateY="16" delay={0.6}>
+              <Projects range={[1, 1]} />
+          </RevealFx>
+          {routes["/blog"] && (
+              <Flex fillWidth gap="24" mobileDirection="column">
+                  <Flex flex={1} paddingLeft="l" paddingTop="24">
+                      <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                          Latest from the blog
+                      </Heading>
+                  </Flex>
+                  <Flex flex={3} paddingX="20">
+                      <Posts range={[1, 2]} columns="2" />
+                  </Flex>
+              </Flex>
+          )}
+          <Projects range={[2]} />
+          {newsletter.display && <Mailchimp newsletter={newsletter} />}
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }
