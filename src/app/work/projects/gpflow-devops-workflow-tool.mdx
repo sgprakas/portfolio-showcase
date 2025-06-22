@@ -1,0 +1,88 @@
+---
+title: "Gpflow: Building a DevOps Workflow Automation Engine (WIP 🧑🏻‍💻)"
+publishedAt: "2025-06-21"
+summary: "Gpflow is a work-in-progress workflow engine designed to automate DevOps operations using modular nodes, agent-based execution, and AI-assisted orchestration."
+images:
+  - "/images/projects/gpflow/cover.png"
+  - "/images/projects/gpflow/architecture.png"
+team:
+  - name: "Gnana Prakash S"
+    role: "Full Stack Engineer"
+    avatar: "/images/avatar.jpeg"
+    linkedIn: "https://www.linkedin.com/in/sgprakas/"
+    link: "https://github.com/gpmindset/gpflow"
+---
+
+## Project Overview
+
+**Gpflow** is an experimental workflow engine focused on simplifying DevOps automation through node-based execution and agent integration. It is currently under active development and aims to serve as the foundation for building AI-driven DevOps agents that can handle provisioning, orchestration, and infrastructure tasks with minimal manual input.
+
+Rather than building a full low-code platform, Gpflow prioritizes backend architecture, extensibility, and developer control.
+
+---
+
+## Architecture
+    <Media
+          sizes="(max-width: 560px) 100vw, 50vw"
+          radius="m"
+          aspectRatio={"16 / 9"}
+          src={"/images/projects/gpflow/architecture.png"}
+          alt={"GPflow Architecture"}
+        />
+
+
+## Work in Progress Goals
+
+- **Hybrid Execution Model**
+Design workflows that split execution between a central backend and remote agents (e.g., EC2, local servers).
+
+- **Modular Node System**
+Each task is encapsulated as a node — from shell commands to AWS provisioning — making workflows composable and testable.
+
+- **Agent Runtime**
+A lightweight agent installs on provisioned machines to securely execute remote operations.
+
+- **Templating and Secrets**
+Handle dynamic inputs with template variables and resolve secrets securely via a local encryption mechanism.
+
+- **Monorepo Structure**
+Organized into core packages:
+- `core`: Execution engine and context manager
+- `nodes`: Node definitions and execution logic
+- `workflow`: Workflow schema and orchestrator
+- `cli`: Developer tooling to run and test workflows
+
+---
+
+## Technologies Being Used
+
+- **TypeScript**, **Node.js**, **Next.js (App Router)**
+- **Worker Threads** for isolated function execution
+- **SSE** for real-time frontend updates
+- **Cloud Provider SDK(AWS only for now)**, **SSH**, **Docker CLI** for DevOps automation
+- **Handlebars** for input templating
+- **Local Secret Manager** with encryption support
+
+---
+
+## Development Focus
+
+The current phase is focused on:
+- Creating a stable execution engine and context system
+- Defining the node format and builder APIs
+- Building the agent to support remote shell task execution
+- Integrating templating and secrets securely
+
+---
+
+## What's Next
+
+Once the core system stabilizes, future steps include:
+- AI-powered workflow generation from user prompts
+- Versioned workflows and persistent execution logs
+- Dashboard for visualizing execution and logs
+
+---
+
+Gpflow is still evolving, but the core architectural direction is designed to stay clean, backend-focused, and extendable. It reflects a practical approach to combining DevOps automation with programmable execution logic.
+

@@ -37,16 +37,19 @@ export default function Home() {
       />
       <Row fillWidth paddingY="24" gap="m" mobileDirection="column">
           <Column fillWidth show="s" paddingY="24" gap="m" horizontal="center" vertical={"center"}>
-              <GlitchFx fillWidth speed="slow">
-                  <Media
-                      priority
-                      cursor="interactive"
-                      radius="l"
-                      src={"/images/author.png"}
-                      alt={'Profile of author'}
-                      aspectRatio="4/3"
-                  />
-              </GlitchFx>
+              <RevealFx speed="fast">
+                  <GlitchFx fillWidth speed="slow">
+                      <Media
+                          priority
+                          cursor="interactive"
+                          radius="l"
+                          src={"/images/author.png"}
+                          alt={'Profile of author'}
+                          aspectRatio="4/3"
+                      />
+                  </GlitchFx>
+              </RevealFx>
+
           </Column>
         <Column maxWidth="s">
           {home.featured.display && (
@@ -92,16 +95,18 @@ export default function Home() {
           </RevealFx>
         </Column>
           <Column fillWidth hide="s" paddingY="24" gap="m" horizontal="center" vertical={"center"}>
-                  <GlitchFx fillWidth speed="slow">
-                  <Media
-                      priority
-                      cursor="interactive"
-                      radius="l"
-                      src={"/images/author.png"}
-                      alt={'Profile of author'}
-                      aspectRatio="4/3"
-                  />
-                  </GlitchFx>
+                 <RevealFx speed="fast">
+                     <GlitchFx fillWidth speed="slow">
+                         <Media
+                             priority
+                             cursor="interactive"
+                             radius="l"
+                             src={"/images/author.png"}
+                             alt={'Profile of author'}
+                             aspectRatio="4/3"
+                         />
+                     </GlitchFx>
+                 </RevealFx>
           </Column>
       </Row>
       <Column maxWidth="m" gap="xl" horizontal="center">

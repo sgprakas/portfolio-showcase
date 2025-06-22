@@ -10,7 +10,7 @@ import {
   Tag,
   Text,
   Meta,
-  Schema
+  Schema, Card, Line, Row
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -47,7 +47,7 @@ export default function About() {
     {
       title: about.technical.title,
       display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
+      items: Object.values(about.technical.skills).flat().map((skill) => skill.name),
     },
   ];
   return (
@@ -113,30 +113,10 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            {about.calendar.display && (
-              <Flex
-                fitWidth
-                border="brand-alpha-medium"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Flex>
+            {about.resume.display && (
+                <Button href={about.resume.link} download data-border="rounded" size="s" id="arrow-button-2" variant="secondary" arrowIcon>
+                  Download my resume
+                </Button>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
@@ -277,42 +257,34 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
+
+              {
+                Object.keys(about.technical.skills).map((skill, index) => (
+                    <Column key={`${skill}-${index}`} fillWidth gap="m" marginBottom="40">
+                      <Heading
+                          as="h4"
+                          id={skill}
+                          variant="heading-strong-s"
+                          style={{ textTransform: "capitalize"}}
+                      >
+                        {skill}
+                      </Heading>
+                      <Row fillWidth gap="m" wrap>
+                        {about.technical.skills[skill as keyof typeof about.technical.skills].map((skill, index) => (
+                            <Column key={`${skill.name}-${index}`} gap="4">
+                              <Card radius="l" border="neutral-alpha-medium">
+                                <Row paddingX="20" paddingY="12" gap="8" vertical="center">
+                                  { skill?.icon && <Avatar size="s" src={skill.icon}/>}
+                                  <Text variant="label-default-s">{skill.name}</Text>
+                                </Row>
+                              </Card>
+                            </Column>
                         ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
-              </Column>
+                      </Row>
+                    </Column>
+                ))
+              }
+
             </>
           )}
         </Column>

@@ -47,7 +47,7 @@ export const iconLibrary: Record<string, IconType> = {
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
   x: FaXTwitter,
-  logo: MyLogo
+  logo: MyLogo as IconType,
 };
 
 export type IconLibrary = typeof iconLibrary;

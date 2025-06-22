@@ -1,5 +1,3 @@
-import { Logo } from "@once-ui-system/core";
-
 const person = {
     firstName: "Gnana Prakash",
     lastName: "S",
@@ -56,8 +54,8 @@ const home = {
     headline: <>Crafting clean, efficient, and scalable software systems</>,
     featured: {
         display: true,
-        title: <>Recent project: <strong className="ml-4">GPflow</strong></>,
-        href: "/work/building-once-ui-a-customizable-design-system",
+        title: <>Recent project: <strong className="ml-4">GPflow (WIP 🧑🏻‍💻)</strong></>,
+        href: "/work/gpflow-devops-workflow-tool",
     },
     subline: (
         <>
@@ -80,9 +78,9 @@ const about = {
     avatar: {
         display: true,
     },
-    calendar: {
-        display: false,
-        link: "https://cal.com",
+    resume: {
+        display: true,
+        link: "/resume/GnanaPrakash_Fullstack_Developer.pdf",
     },
     intro: {
         display: true,
@@ -144,42 +142,47 @@ const about = {
         ],
     },
     technical: {
-        display: true, // set to false to hide this section
+        display: true,
         title: "Technical skills",
-        skills: [
-            {
-                title: "Figma",
-                description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-                // optional: leave the array empty if you don't want to display images
-                images: [
-                    {
-                        src: "/images/projects/project-01/cover-02.jpg",
-                        alt: "Project image",
-                        width: 16,
-                        height: 9,
-                    },
-                    {
-                        src: "/images/projects/project-01/cover-03.jpg",
-                        alt: "Project image",
-                        width: 16,
-                        height: 9,
-                    },
-                ],
-            },
-            {
-                title: "Next.js",
-                description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-                // optional: leave the array empty if you don't want to display images
-                images: [
-                    {
-                        src: "/images/projects/project-01/cover-04.jpg",
-                        alt: "Project image",
-                        width: 16,
-                        height: 9,
-                    },
-                ],
-            },
-        ],
+        skills: {
+            frontend: [
+                { name: "TypeScript", icon: "/skills/typescript.svg" },
+                { name: "JavaScript", icon: "/skills/javascript.svg" },
+                { name: "React", icon: "/skills/react.svg" },
+                { name: "Bootstrap", icon: "/skills/bootstrap.svg" },
+                { name: "MaterialUI", icon: "/skills/mui.svg" },
+                {
+                    name: "TailwindCSS",
+                    icon: "/skills/tailwindcss.svg",
+                    color: "#38B2AC",
+                },
+            ],
+            backend: [
+                { name: "Node.js", icon: "/skills/nodedotjs.svg" },
+                { name: "Express", icon: "/skills/express.svg" },
+                { name: "Fastify", icon: "/skills/fastify.svg" },
+                { name: "GraphQL", icon: "/skills/graphql.svg" },
+                { name: "MQTT", icon: "/skills/mqtt.svg" },
+                { name: "Socket.io", icon: "/skills/socketdotio.svg" },
+                { name: "Python", icon: "/skills/python.svg" },
+                { name: "Flask", icon: "/skills/flask.svg" },
+                { name: "SQL", icon: "/skills/mysql.svg" },
+                { name: "MongoDB", icon: "/skills/mongodb.svg" },
+                { name: "Redis", icon: "/skills/redis.svg" },
+                { name: "Mocha", icon: "/skills/mocha.svg" },
+            ],
+            devops: [
+                { name: "Docker", icon: "/skills/docker.svg" },
+                { name: "AWS", icon: "/skills/amazonwebservices.svg" },
+                { name: "CI/CD", icon: "/skills/jenkins.svg" },
+                { name: "Git", icon: "/skills/git.svg" },
+            ],
+            "AI interests": [
+                { name: "Prompt engineering", icon: "" },
+                { name: "LLM Integration", icon: "" },
+                { name: "AI Agents", icon: "" },
+            ]
+        },
     },
 };
 
