@@ -54,8 +54,8 @@ const home = {
     headline: <>Crafting clean, efficient, and scalable software systems</>,
     featured: {
         display: true,
-        title: <>Recent project: <strong className="ml-4">GPflow (WIP 🧑🏻‍💻)</strong></>,
-        href: "/work/gpflow-devops-workflow-tool",
+        title: <>Recent project: <strong className="ml-4">GPdevmate</strong></>,
+        href: "/work/gpdevmate-ai-code-review-agent",
     },
     subline: (
         <>

@@ -1,0 +1,146 @@
+---
+
+title: "GPdevmate: AI Code Review Bot and CLI Tool (v0.1.x Preview)"
+publishedAt: "2025-07-12"
+summary: "GPdevmate is a simple, AI-powered code review agent that helps developers improve code quality via PR comments and terminal feedback. It has a GitHub bot and a local CLI tool."
+images:
+    - "/images/projects/gpdevmate/cover.png"
+    - "/images/projects/gpdevmate/review-demo.gif"
+team:
+    - name: "Gnana Prakash S"
+      role: "Full Stack Engineer"
+      avatar: "/images/avatar.jpeg"
+      linkedIn: "[https://www.linkedin.com/in/sgprakas/](https://www.linkedin.com/in/sgprakas/)"
+      link: "[https://github.com/gpmindset/gpdevmate](https://github.com/gpmindset/gpdevmate)"
+
+---
+
+## Project Overview
+
+**GPdevmate** is a lightweight AI Code Review Agent designed for developers who want fast, automated feedback on their code. It works both as a GitHub bot that reviews pull requests, and as a CLI tool for reviewing local codebases.
+
+This project is part of a learning journey — to explore agent-style architectures, developer tooling, and practical AI use cases.
+
+---
+## 💭 Why I’m Building This
+
+A lot of developers today use AI to generate code, but don’t always take time to understand what’s being written.
+
+I wanted to build something small and useful that encourages:
+
+* Learning by reviewing code, not just generating it
+* Using AI as a support tool rather than a replacement
+* Practicing better habits around feedback and clean code
+
+It’s also a way for me to explore how LLMs can fit into dev workflows and how to build basic agent-style tools using practical, real-world use cases.
+
+---
+
+## Key Features
+
+* **AI-Powered Code Review**
+Uses OpenAI or Ollama (planned) to review changed logic and return helpful suggestions.
+
+* **GitHub Pull Request Bot**
+Built using [Probot](https://probot.github.io/) — automatically reviews PRs and posts comments.
+
+* **Terminal CLI Tool**
+Run reviews locally in markdown or console format.
+
+* **Safe & Token-Efficient**
+Skips binary files, whitespace-only diffs, and filters excessive tokens before review.
+
+* **Great for Junior Devs**
+Receive feedback while learning to write cleaner code — not just copying from AI.
+
+---
+
+## Architecture
+
+* **Monorepo** managed with `pnpm`
+* `core`: LLM prompt planning, snippet extraction, filtering
+* `cli`: Command line interface and user prompts
+* `apps/github-bot`: GitHub PR handler (Probot-based)
+
+---
+
+## Technologies Used
+
+* **TypeScript** (Node.js)
+* **Probot** for GitHub App framework
+* **OpenAI / Ollama API** (selectable)
+* **dotenv**, **fs**, **chalk**, **commander.js**
+* **Monorepo tooling**: `pnpm`
+
+---
+
+## Development Focus (v0.1.x)
+
+* Basic review logic working for both CLI and bot
+* Working GitHub integration for `pull_request` events
+* Supports basic config, review output in console/markdown
+* Filtering logic to reduce wasteful API calls
+
+---
+
+## What's Next
+
+- **Smarter, Context-Aware Reviews:**
+Enhance analysis by considering relationships across multiple files, improving suggestions in larger PRs.
+
+- **Inline Diff Annotations:**
+Add precise, line-based feedback with cleaner formatting for improved readability and developer experience.
+
+- **Pluggable LLM Provider Support:**
+Easily switch between OpenAI, Ollama, and other local or hosted LLMs via unified config.
+
+- **Learning Mode (Experimental):**
+Adapt feedback style based on the user's coding patterns — great for personalized suggestions and junior developer onboarding.
+
+---
+
+## 📦 NPM Package Release
+
+`gpdevmate` is published as a CLI tool on NPM:
+
+```bash
+npm install -g @sgprakas/gpdevmate
+```
+Use it to review local projects with AI-powered suggestions directly from your terminal.
+
+👉 View on NPM:
+[https://www.npmjs.com/package/@sgprakas/gpdevmate](https://www.npmjs.com/package/@sgprakas/gpdevmate)
+
+> ⚠️ Version: `v0.1.x` — This is a preview release. Features and API are subject to change as development continues.
+
+---
+
+## Screenshots
+
+<Media
+    src="/images/projects/gpdevmate/review-demo.gif"
+    alt="CLI Review comment"
+    radius="m"
+    aspectRatio="16 / 9"
+    sizes="(max-width: 560px) 100vw, 50vw"/>
+
+<Media
+    src="/images/projects/gpdevmate/github-bot.png"
+    alt="Code review in PR comment"
+    radius="m"
+    aspectRatio="16 / 9"
+    sizes="(max-width: 560px) 100vw, 50vw" />
+
+---
+
+## Final Thoughts
+
+GPdevmate is a passion project — not a production-ready tool. It’s built to learn how to architect AI-powered developer tools, and help junior devs write better code through AI feedback.
+
+> 💡 Great for devs or learners — get AI-powered feedback on your code to help you learn, understand, and improve — not just generate.
+
+> ⚠️ Note: This is an early preview (v0.1.x).While gpdevmate provides useful suggestions, they may not always be accurate or context-aware.Use it as a guide — not a source of truth.
+
+> 🚧 In future versions, gpdevmate aims to learn from your codebase to provide more personalized and context-aware reviews.
+
+Explore the GitHub repo 👉 [github.com/gpmindset/gpdevmate](https://github.com/gpmindset/gpdevmate) -- and don't forget to ⭐ the repo if you find it helpful!
